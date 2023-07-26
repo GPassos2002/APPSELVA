@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Button, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet, Button, TouchableOpacity, Text, } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 
 export default function Mapa() {
@@ -33,19 +33,22 @@ export default function Mapa() {
         region={region}
         onRegionChange={setRegion}
       />
+      <View style={styles.button}>
       <TouchableOpacity
         onPress={onZoomIn}
-        style={styles.button}
+        style={styles.buttonIn}
       >
         <Text>Zoom In</Text>
       </TouchableOpacity>
-
+      <View style={styles.divider} />
       <TouchableOpacity
         onPress={onZoomOut}
-        style={styles.button}
+        style={styles.buttonOut}
       >
         <Text>Zoom Out</Text>
       </TouchableOpacity>
+      </View>
+      
     </View>
   );
 };
@@ -58,6 +61,35 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   button: {
-    margin: 10,
+    marginTop: 120,
+    alignSelf: "center",
+    width: 50,
+    height: 75,
+    position: "absolute",
+    top: 50,
+    right: 10,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    borderColor: "#000",
+    borderWidth:1,
+    
   },
+  buttonIn:{
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonOut:{
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  divider: {
+    height: 1,
+    width: '100%',
+    backgroundColor: '#000',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
 });
